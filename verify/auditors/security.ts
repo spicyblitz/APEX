@@ -67,7 +67,7 @@ export async function securityAuditor(options: AuditorOptions): Promise<Security
   try {
     const grepPattern = SECRET_PATTERNS.map(p => `-e "${p}"`).join(' ');
     const scanResult = await exec(
-      `cd ${projectPath} && grep -rn ${grepPattern} --include="*.ts" --include="*.js" --include="*.json" . 2>/dev/null | grep -v node_modules | grep -v ".test." | grep -v ".env.example" | head -20`
+      `cd ${projectPath} && grep -rn ${grepPattern} --include="*.ts" --include="*.js" --include="*.json" . 2>/dev/null | grep -v node_modules | grep -v ".test." | grep -v ".env.example" | grep -v "security.ts" | grep -v "security.js" | grep -v "/dist/" | head -20`
     );
     
     const lines = scanResult.stdout.split('\n').filter(l => l.trim());

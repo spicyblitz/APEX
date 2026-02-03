@@ -26,7 +26,7 @@ interface AuditorOptions {
 }
 
 export async function entryPointAuditor(options: AuditorOptions): Promise<EntryPointResult> {
-  const { exec, entryCommand = 'node dist/index.js --help', projectPath = '.' } = options;
+  const { exec, entryCommand = 'npx tsx index.ts --help', projectPath = '.' } = options;
   
   try {
     const result = await exec(`cd ${projectPath} && ${entryCommand} 2>&1`);
