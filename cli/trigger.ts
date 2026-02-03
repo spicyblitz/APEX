@@ -1,10 +1,6 @@
 #!/usr/bin/env node
 /**
  * /trigger CLI - Cross-project trigger management
- * 
- * Usage:
- *   npx apex-trigger list
- *   npx apex-trigger check <status-file>
  */
 
 import { checkTriggers, Trigger, TriggerCondition } from '../triggers/monitor.js';
@@ -13,13 +9,13 @@ import * as fs from 'fs';
 const DEFAULT_TRIGGERS: Trigger[] = [
   {
     name: 'pattern-validated',
-    condition: { field: 'confidence', operator: 'gte', value: 85 },
+    condition: { name: 'confidence-check', field: 'confidence', operator: 'greater_than', value: 85 },
     action: 'Generate skill',
     enabled: true
   },
   {
     name: 'build-complete',
-    condition: { field: 'status', operator: 'eq', value: 'complete' },
+    condition: { name: 'status-check', field: 'status', operator: 'equals', value: 'complete' },
     action: 'Run /verify',
     enabled: true
   }
@@ -47,13 +43,8 @@ async function main() {
       
     case 'check':
       const statusFile = args[1];
-      if (!statusFile) {
+      if (!statusFile || !fs.existsSync(statusFile)) {
         console.log('Usage: apex-trigger check <status-file>');
-        return;
-      }
-      
-      if (!fs.existsSync(statusFile)) {
-        console.log(`File not found: ${statusFile}`);
         return;
       }
       
@@ -62,27 +53,21 @@ async function main() {
       try {
         status = JSON.parse(content);
       } catch {
-        console.log('Could not parse status file as JSON');
+        console.log('Could not parse status file');
         return;
       }
       
       console.log(`Checking triggers against: ${statusFile}\n`);
-      
       const results = checkTriggers(DEFAULT_TRIGGERS, status);
       
       for (const result of results) {
         const icon = result.fired ? '🔥' : '⏸️';
         console.log(`${icon} ${result.trigger}: ${result.fired ? 'FIRED' : 'not triggered'}`);
-        if (result.fired) {
-          console.log(`   Action: ${result.action}`);
-        }
       }
       break;
       
     default:
-      console.log('Commands:');
-      console.log('  list              - Show all triggers');
-      console.log('  check <file>      - Check triggers against status file');
+      console.log('Commands: list, check <file>');
   }
   
   console.log('\n═══════════════════════════════════════════════════════════════════');

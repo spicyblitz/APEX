@@ -144,3 +144,5 @@ export async function skillExists(
   }
 }
 
+export type { Pattern } from './detector';
+export type { ConfidenceResult } from './confidence';

@@ -121,3 +121,4 @@ export function shouldDiscard(confidence: ConfidenceResult): boolean {
   return confidence.score < 70;
 }
 
+export type { Pattern } from './detector';

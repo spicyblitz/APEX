@@ -25,11 +25,11 @@ export interface ParallelSearchResult {
   errors: string[];
 }
 
-interface SearchFunction {
+export interface SearchFunction {
   (query: string): Promise<SearchResult>;
 }
 
-interface SearchOptions {
+export interface SearchOptions {
   sources: {
     name: string;
     search: SearchFunction;
