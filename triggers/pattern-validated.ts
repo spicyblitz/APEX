@@ -87,3 +87,7 @@ export function getNotificationTargets(event: PatternValidatedEvent): Notificati
   
   return targets;
 }
+
+// Re-export for convenience
+export { Pattern } from '../learning-agent/detector';
+export { ConfidenceResult } from '../learning-agent/confidence';

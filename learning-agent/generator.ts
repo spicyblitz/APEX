@@ -143,3 +143,7 @@ export async function skillExists(
     return false;
   }
 }
+
+// Re-export for convenience
+export { Pattern } from './detector';
+export { ConfidenceResult } from './confidence';

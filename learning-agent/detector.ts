@@ -117,3 +117,6 @@ export function isSignificantPattern(
   const percentageThreshold = totalEntries * 0.05;
   return pattern.occurrences >= 5 || pattern.occurrences >= percentageThreshold;
 }
+
+// Re-export for convenience
+export { LogEntry } from './monitor';

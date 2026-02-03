@@ -139,3 +139,7 @@ export async function autoCorrectDrift(
     corrections
   };
 }
+
+// Re-export for convenience
+export { Pattern } from './detector';
+export { ConfidenceResult } from './confidence';
