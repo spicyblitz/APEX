@@ -3,7 +3,9 @@
   "version": "0.3.0",
   "description": "APEX - Autonomous Pattern Extraction & Cross-Learning System",
   "type": "module",
+  "main": "index.ts",
   "bin": {
+    "apex": "./bin/index.mjs",
     "apex-verify": "./bin/verify.mjs",
     "apex-compound": "./bin/compound.mjs",
     "apex-forge": "./bin/forge.mjs",
@@ -18,6 +20,7 @@
     "lint": "eslint . --ext .ts",
     "typecheck": "tsc --noEmit",
     "build": "tsc",
+    "start": "npx tsx index.ts",
     "verify": "npx tsx cli/verify.ts",
     "compound": "npx tsx cli/compound.ts",
     "forge": "npx tsx cli/forge.ts",
