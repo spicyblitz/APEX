@@ -140,6 +140,3 @@ export async function autoCorrectDrift(
   };
 }
 
-// Re-export for convenience
-export { Pattern } from './detector';
-export { ConfidenceResult } from './confidence';

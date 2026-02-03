@@ -1,13 +1,16 @@
 {
   "name": "apex-skills",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "APEX - Autonomous Pattern Extraction & Cross-Learning System",
   "type": "module",
   "bin": {
     "apex-verify": "./bin/verify.mjs",
     "apex-compound": "./bin/compound.mjs",
     "apex-forge": "./bin/forge.mjs",
-    "apex-tdd": "./bin/tdd.mjs"
+    "apex-tdd": "./bin/tdd.mjs",
+    "apex-scout": "./bin/scout.mjs",
+    "apex-learn": "./bin/learn.mjs",
+    "apex-trigger": "./bin/trigger.mjs"
   },
   "scripts": {
     "test": "vitest run",
@@ -18,7 +21,10 @@
     "verify": "npx tsx cli/verify.ts",
     "compound": "npx tsx cli/compound.ts",
     "forge": "npx tsx cli/forge.ts",
-    "tdd": "npx tsx cli/tdd.ts"
+    "tdd": "npx tsx cli/tdd.ts",
+    "scout": "npx tsx cli/scout.ts",
+    "learn": "npx tsx cli/learn.ts",
+    "trigger": "npx tsx cli/trigger.ts"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

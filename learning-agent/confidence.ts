@@ -121,5 +121,3 @@ export function shouldDiscard(confidence: ConfidenceResult): boolean {
   return confidence.score < 70;
 }
 
-// Re-export Pattern for convenience
-export { Pattern } from './detector';

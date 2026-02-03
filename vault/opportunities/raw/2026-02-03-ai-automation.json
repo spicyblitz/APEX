@@ -1,0 +1,40 @@
+{
+  "success": true,
+  "results": [
+    {
+      "source": "reddit",
+      "items": [
+        {
+          "title": "Result for: AI automation",
+          "url": "https://example.com/search?q=AI%20automation",
+          "score": 75
+        }
+      ],
+      "total": 1
+    },
+    {
+      "source": "hn",
+      "items": [
+        {
+          "title": "Result for: AI automation",
+          "url": "https://example.com/search?q=AI%20automation",
+          "score": 75
+        }
+      ],
+      "total": 1
+    },
+    {
+      "source": "twitter",
+      "items": [
+        {
+          "title": "Result for: AI automation",
+          "url": "https://example.com/search?q=AI%20automation",
+          "score": 75
+        }
+      ],
+      "total": 1
+    }
+  ],
+  "duration_ms": 0,
+  "errors": []
+}

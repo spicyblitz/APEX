@@ -144,6 +144,3 @@ export async function skillExists(
   }
 }
 
-// Re-export for convenience
-export { Pattern } from './detector';
-export { ConfidenceResult } from './confidence';

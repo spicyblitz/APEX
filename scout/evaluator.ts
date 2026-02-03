@@ -127,5 +127,3 @@ export function getApproved(
   return opportunities.filter(o => o.recommendation === 'approve');
 }
 
-// Re-export for convenience
-export { Opportunity } from './opportunity-writer';
